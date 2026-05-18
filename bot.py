@@ -1,4 +1,5 @@
-import os 
+import os
+import telebot
 from groq import Groq
 
 TELEGRAM_TOKEN = os.environ.get("TELEGRAM_TOKEN")
