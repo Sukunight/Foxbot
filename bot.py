@@ -75,6 +75,17 @@ def repondre(message):
         bot.reply_to(message, reply)
     except Exception as e:
         bot.reply_to(message, "*je regarde mon téléphone* Attends, j'ai un souci technique là, deux secondes.")
+import threading
+from http.server import HTTPServer, BaseHTTPRequestHandler
 
+class Handler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+
+def run_server():
+    HTTPServer(('0.0.0.0', 10000), Handler).serve_forever()
+
+threading.Thread(target=run_server, daemon=True).start()
 bot.polling(none_stop=True, timeout=60, long_polling_timeout=60)
 
