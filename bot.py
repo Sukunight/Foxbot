@@ -77,3 +77,4 @@ def repondre(message):
         bot.reply_to(message, "*je regarde mon téléphone* Attends, j'ai un souci technique là, deux secondes.")
 
 bot.polling(none_stop=True, timeout=60, long_polling_timeout=60)
+
